@@ -1,0 +1,24 @@
+{% load static %}
+<div class="container">
+	<div class="logo">
+	   <a class="logo-link-text" href="?page=1">Myblog</a>
+	   {% if user_valid %}
+	       <a class="logo-link-text" href="http://127.0.0.1:8000/admin">Admin</a>
+	    {% endif %}   
+	</div>
+	<nav>
+	   <ul>
+		   <li class="link-ln-lo">
+              {% if user_valid %}
+               <a class="head-text" href="{%url 'logout_view' %}">
+               	   <span>→</span>Logout<span>←</span>
+               </a>
+              {% else %}
+                <a class="head-text" href="{%url 'Sign_inView' %}">
+                	<span>→</span>Sign in<span>←</span>
+                </a> 
+               {% endif %}
+           </li>
+       </ul>
+   </nav>    
+</div>

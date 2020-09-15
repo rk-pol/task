@@ -1,0 +1,63 @@
+{% extends  'base_page.html' %}
+
+{% block content %}
+
+
+<div class="reg-form">
+	{% if errors %}
+	   <div id='reg-err'  data-count_err='{{errors|length}}' class="errors-sigin">
+	   	<div class="errors-sigin-text">
+	   		<ul>
+   	      {% for value in errors.values %}	
+   	      
+   	      	<li>{{value}}</li>
+		   	 
+	   {% endfor %}
+	   </ul>	 
+	   </div>
+	   </div>
+    {% endif %}
+	<form method="POST">{% csrf_token %}
+
+		<div class="reg">
+			<div class="reg-main">
+				<h1 class="reg-main-text">Регистрация</h1>
+			</div>
+			<hr>
+			<div>
+				<div class="reg-label">
+					<label for="id_username" class="reg-label-text">Имя пользователя:</label>
+				</div>
+				<div class="reg-input">
+					<input type="text" name="username" placeholder="Имя" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="">
+				</div> 
+
+				<div class="reg-label">
+					<label for="email" class="reg-label-text">Email:</label>
+				</div>
+				<div class="reg-input">
+					<input type="text" placeholder="example@gmail.com" name="email" required id="email">
+				</div> 
+
+				<div class="reg-label">
+					<label for="password1" class="reg-label-text">Пароль:</label>
+				</div>
+				<div class="reg-input">
+					<input type="password" placeholder="Введите пароль" name="password1" autofocus autocapitalize="none" autocomplete="password" maxlength="12" required id="password">
+				</div>
+
+				<div class="reg-label">
+					<label for="password2" class="reg-label-text">Подтвердите пароль:</label>
+				</div>
+
+				<div class="reg-input">
+					<input type="password" placeholder="Повторите пароль" name="password2" autofocus autocapitalize="none" autocomplete="password2" maxlength="12" required id="password2">
+				</div>
+			</div>
+			<div class="reg-button">
+				<input class="reg-button-text" type="submit" value="Регистрация">
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

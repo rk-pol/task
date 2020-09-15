@@ -1,0 +1,49 @@
+{% extends  'base_page.html' %}
+
+{% block content %}
+
+<div class="reg-form">
+	{% if errors %}
+   	   {% for value in errors.values %}
+		  <div class="errors-sigin">
+			 <div class="errors-sigin-text">{{value}}</div>
+		  </div>
+	   {% endfor %}
+    {% endif %}
+	<form id="sign_in" method="POST">{% csrf_token %}
+		<div class="reg">
+			<div class="reg-main-signin">
+				<h1 class="reg-main-text">Вход</h1>
+			</div>
+			<hr>
+			<div>
+				<div class="reg-label">
+					<label for="email" class="reg-label-text">Email:</label>
+				</div>
+				<div class="reg-input">
+					<input type="text" placeholder="example@gmail.com" name="email" required id="email">
+				</div> 
+				<div class="reg-label">
+					<label for="password" class="reg-label-text">Пароль:</label>
+				</div>
+
+				<div class="reg-input">
+					<input type="password" placeholder="Введите пароль" name="password" autofocus autocapitalize="none" autocomplete="password" maxlength="12" required id="password">
+				</div>
+				<div class="reg-label">
+
+				</div>
+				<div class="reg-button">
+					<input class="reg-button-text reg-button-cursor" type="submit" value="Войти">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="signin-to-reg">
+	<div class="signin-to-reg-text">
+		<a class="signin-to-reg-text-link-clr" href="{%url 'registrate' %}">Зарегистрироваться?</a>
+	</div>
+</div>
+{% endblock %}
+

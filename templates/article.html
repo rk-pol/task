@@ -1,0 +1,22 @@
+{% extends  'base_page.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="article">
+	<div class="meta-info">
+		<div class="meta-info-art">Author: {{ article.author }}</div>
+		<div class="meta-info-art">created: {{ article.published|time:"H:i" }}</div>
+		<div class="meta-info-art">last update: {{ article.updated|time:"H:i" }}</div>
+	</div>
+	<hr class="article-hr">
+	<div class="article-title">	
+		{{ article.title }}	
+	</div>
+	<hr>
+	<div class="article-content">
+		<img src="{{article.image.url}}" class="img-article">
+		{{ article.description }}
+	</div>
+</div>
+{% endblock %}
